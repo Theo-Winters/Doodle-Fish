@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv3euteuxo7jr"]
+
+[ext_resource type="Script" path="res://Components/GrowthController.gd" id="1_8fnqw"]
+
+[node name="GrowthComponent" type="Node2D"]
+script = ExtResource("1_8fnqw")
+max_size = 2.0
+randomness = 0.05

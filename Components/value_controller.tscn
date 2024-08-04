@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0u86u1ng77t6"]
+
+[ext_resource type="Script" path="res://Components/ValueController.gd" id="1_u7ni1"]
+
+[node name="ValueComponent" type="Node2D" node_paths=PackedStringArray("FishSize")]
+script = ExtResource("1_u7ni1")
+FishSize = NodePath("")
+BaseValue = 1
+MaxValue = 5

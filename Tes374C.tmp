@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b868wxctqytcx"]
+
+[ext_resource type="PackedScene" uid="uid://dbtg6r0lxkhif" path="res://fish.tscn" id="1_1oclr"]
+[ext_resource type="Texture2D" uid="uid://d1s2ybcd0kap3" path="res://FishTank.png" id="1_nyb75"]
+
+[node name="Test Scene" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_nyb75")
+
+[node name="Fish" parent="." instance=ExtResource("1_1oclr")]
+position = Vector2(794, 316)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(3, 508)
