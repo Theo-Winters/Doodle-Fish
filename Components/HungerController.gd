@@ -10,7 +10,6 @@ func Starve():
 	if hunger <= 0:
 		self.get_parent().queue_free()
 
-
 func _on_timer_timeout():
 	hunger -= 0.25
 	if hunger <= 0:

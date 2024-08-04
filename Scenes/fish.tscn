@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbtg6r0lxkhif"]
+
+[ext_resource type="Script" path="res://Scripts/fish.gd" id="1_wqfee"]
+[ext_resource type="Texture2D" uid="uid://cxb2a3ldi3hot" path="res://Textures/DoodleFish.png" id="2_iyver"]
+[ext_resource type="PackedScene" uid="uid://cn370wtsggl63" path="res://Components/hunger_controller.tscn" id="3_rms8m"]
+[ext_resource type="PackedScene" uid="uid://cv3euteuxo7jr" path="res://Components/growth_controller.tscn" id="4_5w4e5"]
+[ext_resource type="PackedScene" uid="uid://d0u86u1ng77t6" path="res://Components/value_controller.tscn" id="5_fp5yr"]
+[ext_resource type="PackedScene" uid="uid://dthmbrvn4wlsl" path="res://Components/navigation_controller.tscn" id="6_55gjx"]
+[ext_resource type="PackedScene" uid="uid://dawkluy24ywwl" path="res://Components/ui_controller.tscn" id="7_1pngg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n3bu4"]
+radius = 33.9726
+height = 181.993
+
+[node name="Fish" type="CharacterBody2D"]
+collision_mask = 0
+input_pickable = true
+script = ExtResource("1_wqfee")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.56208
+shape = SubResource("CapsuleShape2D_n3bu4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_iyver")
+
+[node name="HungerController" parent="." instance=ExtResource("3_rms8m")]
+
+[node name="GrowthController" parent="." node_paths=PackedStringArray("hunger") instance=ExtResource("4_5w4e5")]
+hunger = NodePath("../HungerController")
+
+[node name="ValueController" parent="." node_paths=PackedStringArray("FishSize") instance=ExtResource("5_fp5yr")]
+FishSize = NodePath("../GrowthController")
+
+[node name="NavigationController" parent="." node_paths=PackedStringArray("stomach") instance=ExtResource("6_55gjx")]
+stomach = NodePath("../HungerController")
+
+[node name="UIController" parent="." node_paths=PackedStringArray("hunger", "growth", "value") instance=ExtResource("7_1pngg")]
+visible = false
+hunger = NodePath("../HungerController")
+growth = NodePath("../GrowthController")
+value = NodePath("../ValueController")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

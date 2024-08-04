@@ -5,7 +5,7 @@ class_name GrowthController
 @export var hunger: HungerController
 @export var max_size: float
 @export var randomness: float
-var growth: float = 0.5
+var growth: float = 0.25
 var fish_max: float
 var percent_grown: float
 

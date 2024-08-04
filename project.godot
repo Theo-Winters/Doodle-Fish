@@ -11,14 +11,15 @@ config_version=5
 [application]
 
 config/name="Doodle Fish"
-run/main_scene="res://Test Scene.tscn"
+run/main_scene="res://Scenes/Test Scene.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Money="*res://Money.gd"
+Money="*res://Scripts/Money.gd"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"

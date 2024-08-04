@@ -18,7 +18,7 @@ func _process(delta):
 #TODO: Add variety to the swimming so they don't all stack.
 #TODO: Add randomness to turn around before glass
 func Swim():
-	if get_tree().has_group("food"):
+	if get_tree().has_group("food") and stomach.hunger < 75:
 		var foodToGet = get_tree().get_nodes_in_group("food")
 		var foodindex = foodToGet[0]
 		var dir = Vector2(-(parent.position.x - foodindex.position.x), -(parent.position.y - foodindex.position.y))
