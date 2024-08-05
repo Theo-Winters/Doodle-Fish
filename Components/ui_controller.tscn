@@ -1,16 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dawkluy24ywwl"]
+[gd_scene load_steps=3 format=3 uid="uid://dawkluy24ywwl"]
 
 [ext_resource type="Script" path="res://Components/UIController.gd" id="1_hvdju"]
+[ext_resource type="Theme" uid="uid://mtnbajxp1ltg" path="res://Resources/Button Normal.tres" id="2_efjg2"]
 
 [node name="UIController" type="Node2D"]
 script = ExtResource("1_hvdju")
 
 [node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(200, 150)
+z_index = 2
+custom_minimum_size = Vector2(200, 200)
 offset_left = -100.0
 offset_top = -185.0
 offset_right = 100.0
 offset_bottom = -35.0
+theme = ExtResource("2_efjg2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -19,9 +22,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_efjg2")
 
 [node name="HungerLabel" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_efjg2")
 text = "Hunger:"
 horizontal_alignment = 1
 

@@ -1,7 +1,28 @@
-[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://mtnbajxp1ltg"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://mtnbajxp1ltg"]
 
-[ext_resource type="Texture2D" uid="uid://djv5qj7oev0ll" path="res://Textures/Sprites/UI_Flat_Button_Small_Lock_01a1.png" id="1_osgf6"]
+[ext_resource type="FontFile" uid="uid://bi2ubf2i7r4jk" path="res://Resources/Pacifico-Regular.ttf" id="1_qlphp"]
+[ext_resource type="Texture2D" uid="uid://krd35ped00w4" path="res://Textures/BoxesBanners/Box_Orange_Square.png" id="1_wfe62"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8d6fy"]
+texture = ExtResource("1_wfe62")
+modulate_color = Color(0.568973, 0.568973, 0.568973, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cw60o"]
+texture = ExtResource("1_wfe62")
 
 [resource]
-texture = ExtResource("1_osgf6")
-texture_margin_bottom = 5.0
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 6
+Button/fonts/font = ExtResource("1_qlphp")
+Button/styles/hover = SubResource("StyleBoxTexture_8d6fy")
+Button/styles/normal = SubResource("StyleBoxTexture_cw60o")
+Button/styles/pressed = SubResource("StyleBoxTexture_cw60o")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 4
+Label/font_sizes/font_size = 21
+Label/fonts/font = ExtResource("1_qlphp")
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 4
+ProgressBar/font_sizes/font_size = 16
+ProgressBar/fonts/font = ExtResource("1_qlphp")

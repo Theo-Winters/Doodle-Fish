@@ -23,3 +23,6 @@ func _process(delta):
 	$"../NavigationController".scale = scale
 	$"../Sprite2D".scale = scale * 0.025
 	percent_grown = growth / fish_max
+
+func set_growth(value):
+	growth = value

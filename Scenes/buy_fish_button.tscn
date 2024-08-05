@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5j0kr0nac2j8"]
+
+[ext_resource type="Script" path="res://Scenes/BuyFish.gd" id="1_pmp72"]
+[ext_resource type="Theme" uid="uid://mtnbajxp1ltg" path="res://Resources/Button Normal.tres" id="1_q2o2i"]
+
+[node name="BuyFish" type="Button"]
+custom_minimum_size = Vector2(200, 150)
+theme = ExtResource("1_q2o2i")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("1_pmp72")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

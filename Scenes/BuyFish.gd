@@ -15,4 +15,4 @@ func _on_pressed():
 	if Money.remove_money(buy_value):
 		var fishItem = FishToBuy.instantiate()
 		fishItem.position = Vector2(550, 150)
-		get_tree().get_root().add_child(fishItem)
+		get_node("/root/Test Scene").add_child(fishItem)

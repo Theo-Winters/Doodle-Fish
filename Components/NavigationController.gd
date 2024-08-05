@@ -22,14 +22,15 @@ func Swim():
 		var foodToGet = get_tree().get_nodes_in_group("food")
 		var foodindex = foodToGet[0]
 		var dir = Vector2(-(parent.position.x - foodindex.position.x), -(parent.position.y - foodindex.position.y))
-		dir.normalized()
+		#dir.normalized()
 		parent.velocity = dir
 	else:
 		parent.velocity.y = depth - parent.position.y
 	
-	if parent.position.x <= 50:
+	var chanceToTurn = randi() % 1000
+	if parent.position.x <= 50 or chanceToTurn >= 998:
 		parent.velocity.x = 40
-	elif parent.position.x >= 1100:
+	elif parent.position.x >= 1100 or chanceToTurn <= 1:
 		parent.velocity.x = -40
 		
 #TODO: Move this to it's own fucntion.
