@@ -8,4 +8,4 @@ func calculate_elapsed_time(previoustime):
 	lastSaveTime = previoustime
 	currentTime = Time.get_unix_time_from_system()
 	elapsedTime = currentTime - lastSaveTime
-	print(lastSaveTime, " : " , currentTime, " : ", elapsedTime)
+	return elapsedTime

@@ -24,5 +24,6 @@ func _process(delta):
 	$"../Sprite2D".scale = scale * 0.025
 	percent_grown = growth / fish_max
 
-func set_growth(value):
+func set_growth(value, time):
+	value += time * (1 / GrowthSpeed)
 	growth = value

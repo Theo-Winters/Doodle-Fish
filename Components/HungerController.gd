@@ -15,5 +15,9 @@ func _on_timer_timeout():
 	if hunger <= 0:
 		Starve()
 
-func set_hunger(value):
-	hunger = value
+func set_hunger(value, time):
+	value -= time / 15
+	if value >= 5:
+		hunger = value
+	else:
+		hunger = 5

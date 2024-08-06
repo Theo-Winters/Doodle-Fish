@@ -14,11 +14,13 @@ func get_sprite():
 func get_buy_value():
 	return $ValueController.BaseValue
 
-func set_hunger(value):
-	$HungerController.set_hunger(value)
+func set_hunger(value, time):
+	$HungerController.set_hunger(value, time)
 
-func set_growth(value):
-	$GrowthController.set_growth(value)
+func set_growth(value, time):
+	$GrowthController.set_growth(value, time)
+	
+
 
 func save():
 	var save_dict = {

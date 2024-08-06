@@ -17,3 +17,4 @@ func _on_button_pressed():
 	var foodItem = food.instantiate()
 	foodItem.position = Vector2(550, 50)
 	add_child(foodItem)
+

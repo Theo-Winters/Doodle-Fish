@@ -1,13 +1,14 @@
 extends Node
 
+var lastSaveTime
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	OS.request_permissions()
 
 
 func _notification(what: int):
-	if what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_WM_CLOSE_REQUEST:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_APPLICATION_PAUSED or what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		save_game()
 
 
@@ -70,17 +71,16 @@ func load_game():
 		if not parse_result == OK:
 			print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
 			continue
-
 		# Get the data from the JSON object
 		var node_data = json.get_data()
 		if !node_data.has("filename"):
 			Money.money = node_data["money"]
-			TimeController.calculate_elapsed_time(node_data["saveTime"])
+			lastSaveTime = TimeController.calculate_elapsed_time(node_data["saveTime"])
 		else:
 			# Firstly, we need to create the object and add it to the tree and set its position.
 			var new_object = load(node_data["filename"]).instantiate()
 			get_node(node_data["parent"]).add_child(new_object)
-			new_object.set_hunger(node_data["hunger"])
-			new_object.set_growth(node_data["growth"])
+			new_object.set_hunger(node_data["hunger"], lastSaveTime)
+			new_object.set_growth(node_data["growth"], lastSaveTime)
 			new_object.position = Vector2(550, 150)
 			
