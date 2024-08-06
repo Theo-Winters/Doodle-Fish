@@ -27,8 +27,7 @@ func save():
 		"filename" : get_scene_file_path(),
 		"parent" : get_parent().get_path(),
 		"hunger" : $HungerController.hunger,
-		"growth" : $GrowthController.growth,
-		"money" : Money.money
+		"growth" : $GrowthController.growth
 	}
 	return save_dict
 	
