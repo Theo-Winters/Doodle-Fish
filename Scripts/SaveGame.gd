@@ -80,7 +80,10 @@ func load_game():
 			# Firstly, we need to create the object and add it to the tree and set its position.
 			var new_object = load(node_data["filename"]).instantiate()
 			get_node(node_data["parent"]).add_child(new_object)
-			new_object.set_hunger(node_data["hunger"], lastSaveTime)
-			new_object.set_growth(node_data["growth"], lastSaveTime)
-			new_object.position = Vector2(550, 150)
-			
+			if node_data.has("hunger"):
+				new_object.set_hunger(node_data["hunger"], lastSaveTime)
+				new_object.set_growth(node_data["growth"], lastSaveTime)
+			if node_data.has("posx"):
+				new_object.position = Vector2(node_data["posx"], node_data["posy"])
+			else:
+				new_object.position = Vector2(550, 150)

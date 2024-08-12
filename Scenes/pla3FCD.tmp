@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnfo71pbkxjva"]
+
+[ext_resource type="Texture2D" uid="uid://3cq1y3fuoddl" path="res://Textures/Plant.png" id="1_ftkaf"]
+[ext_resource type="Script" path="res://Scenes/DraggableComponent.gd" id="2_eymuw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pavdi"]
+radius = 141.0
+height = 752.0
+
+[node name="Plant" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ftkaf")
+
+[node name="DraggableComponent" type="Area2D" parent="."]
+script = ExtResource("2_eymuw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggableComponent"]
+shape = SubResource("CapsuleShape2D_pavdi")
+
+[connection signal="input_event" from="DraggableComponent" to="DraggableComponent" method="_on_input_event"]

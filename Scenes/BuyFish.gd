@@ -1,13 +1,14 @@
 extends Button
 
 @export var FishToBuy = preload("res://Scenes/fish.tscn")
-var buy_value: int
+@export var buy_value: int
 
 func _ready():
 	var tempFish = FishToBuy.instantiate()
 	self.icon = tempFish.get_sprite()
-	buy_value = tempFish.get_buy_value()
-	self.text = "Buy $" + str(tempFish.get_buy_value())
+	if tempFish.has_method("get_buy_value"):
+		buy_value = tempFish.get_buy_value()
+	self.text = "Buy $" + str(buy_value)
 	tempFish.queue_free()
 
 

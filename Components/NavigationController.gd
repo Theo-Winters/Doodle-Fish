@@ -3,13 +3,16 @@ class_name NavigationController
 
 @export var stomach: HungerController
 var parent: CharacterBody2D
-var preferedY: int = 250
+@export_range(1, 3, 1) var preferedThird: int = 1
+var preferedY: int
 var depth: int
 
 func _ready():
+	preferedY = ((get_viewport_rect().size.y - 50) / 4) * preferedThird
 	parent = self.get_parent()
 	parent.velocity = Vector2(randi_range(-40, 40), 0)
-	depth = preferedY + randi_range(-150, 150)
+	depth = preferedY + randi_range(-50, 50)
+	print(get_viewport_rect().size.y, " + " , preferedY)
 
 func _process(delta):
 	Swim()
