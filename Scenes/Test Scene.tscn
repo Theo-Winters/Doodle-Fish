@@ -1,105 +1,61 @@
-[gd_scene load_steps=22 format=3 uid="uid://b868wxctqytcx"]
+[gd_scene load_steps=16 format=3 uid="uid://b868wxctqytcx"]
 
-[ext_resource type="PackedScene" uid="uid://dbtg6r0lxkhif" path="res://Scenes/fish.tscn" id="1_1oclr"]
 [ext_resource type="Texture2D" uid="uid://d1s2ybcd0kap3" path="res://Textures/FishTank.png" id="1_nyb75"]
-[ext_resource type="Script" path="res://Scripts/World.gd" id="1_yfo3n"]
-[ext_resource type="PackedScene" uid="uid://cui5rp1x6sfgg" path="res://Scenes/food.tscn" id="3_n0nhd"]
-[ext_resource type="FontFile" uid="uid://bi2ubf2i7r4jk" path="res://Resources/Pacifico-Regular.ttf" id="5_b0j2b"]
-[ext_resource type="Texture2D" uid="uid://krd35ped00w4" path="res://Textures/BoxesBanners/Box_Orange_Square.png" id="5_c3gcu"]
-[ext_resource type="Script" path="res://Scenes/ShopUI.gd" id="6_kprxw"]
-[ext_resource type="Theme" uid="uid://mtnbajxp1ltg" path="res://Resources/Button Normal.tres" id="7_3su68"]
-[ext_resource type="Texture2D" uid="uid://djiye6yyvsbs5" path="res://Textures/Icons/Icon_Small_CoinDollar.png" id="8_kc1db"]
-[ext_resource type="PackedScene" uid="uid://c5j0kr0nac2j8" path="res://Scenes/buy_fish_button.tscn" id="9_dxqtl"]
-[ext_resource type="PackedScene" uid="uid://bkwem1gygclvi" path="res://Scenes/fish2.tscn" id="10_ee5q4"]
-[ext_resource type="PackedScene" uid="uid://1xuls7q7pmkv" path="res://Scenes/fish3.tscn" id="10_vbhsi"]
-[ext_resource type="PackedScene" uid="uid://dnfo71pbkxjva" path="res://Scenes/plant.tscn" id="11_4rvvk"]
+[ext_resource type="Script" path="res://Scenes/Scripts/World.gd" id="1_yfo3n"]
+[ext_resource type="Texture2D" uid="uid://b3cl47aml7ah" path="res://Textures/white-paper-texture.jpg" id="2_nqlb4"]
+[ext_resource type="PackedScene" uid="uid://dygjaamr1ytt4" path="res://shop_ui.tscn" id="3_t260m"]
+[ext_resource type="Texture2D" uid="uid://bdetehvnfxl8p" path="res://Textures/BarFill.png" id="3_wr2mk"]
+[ext_resource type="Texture2D" uid="uid://vdcx6stswwah" path="res://Textures/BarBG.png" id="4_ea1bu"]
+[ext_resource type="Texture2D" uid="uid://dd1r4dxpp10es" path="res://Textures/UiIconsPack_Transparent_Icons.png" id="5_hjlkn"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1r586"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s3ao0"]
+texture = ExtResource("3_wr2mk")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nbago"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ti7s"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pjfgn"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4ysb"]
+texture = ExtResource("4_ea1bu")
 
-[sub_resource type="Animation" id="Animation_ctr5i"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_culmb"]
+atlas = ExtResource("5_hjlkn")
+region = Rect2(927.345, 983.997, 244.476, 256.876)
+
+[sub_resource type="Animation" id="Animation_7qyam"]
 resource_name = "Close Shop"
-tracks/0/type = "bezier"
+length = 0.5
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/NinePatchRect:position:x")
+tracks/0/path = NodePath("Shop UI:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(705, -0.25, 0, 0.25, 0, 1155, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/NinePatchRect:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(650, 0), Vector2(1155, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_urf66"]
+[sub_resource type="Animation" id="Animation_666t8"]
 resource_name = "Open Shop"
-tracks/0/type = "bezier"
+length = 0.5
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/NinePatchRect:position:x")
+tracks/0/path = NodePath("Shop UI:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1155, -0.25, 0, 0.25, 0, 705, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("CanvasLayer/NinePatchRect:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1155, 0), Vector2(650, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_8ytjq"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/NinePatchRect:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1155, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/NinePatchRect:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mjwr2"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i2b4w"]
 _data = {
-"Close Shop": SubResource("Animation_ctr5i"),
-"Open Shop": SubResource("Animation_urf66"),
-"RESET": SubResource("Animation_8ytjq")
+"Close Shop": SubResource("Animation_7qyam"),
+"Open Shop": SubResource("Animation_666t8")
 }
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_sjm76"]
@@ -108,8 +64,9 @@ b = Vector2(0, 1150)
 [node name="Test Scene" type="Node2D"]
 script = ExtResource("1_yfo3n")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1920.0
+[node name="BG" type="TextureRect" parent="."]
+offset_left = 1.0
+offset_right = 1921.0
 offset_bottom = 1080.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_nyb75")
@@ -117,106 +74,27 @@ texture = ExtResource("1_nyb75")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Button" type="Button" parent="CanvasLayer"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 280.0
-offset_top = -629.0
-offset_right = 361.0
-offset_bottom = -598.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Add Food"
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 88.0
-offset_top = 11.0
-offset_right = 230.0
-offset_bottom = 83.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_b0j2b")
-theme_override_font_sizes/font_size = 40
-text = "Money: "
-
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
-custom_minimum_size = Vector2(450, 648)
-anchors_preset = 11
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1155.0
-offset_right = 1605.0
-offset_bottom = 1296.0
+offset_left = -152.0
+offset_top = 4.0
+offset_right = -88.0
+offset_bottom = 68.0
 grow_horizontal = 0
-grow_vertical = 2
-theme = ExtResource("7_3su68")
-texture = ExtResource("5_c3gcu")
-region_rect = Rect2(0, 0, 1271.41, 1510)
-script = ExtResource("6_kprxw")
-
-[node name="ShopToggle" type="Button" parent="CanvasLayer/NinePatchRect"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 0
-offset_left = -69.0
-offset_top = 5.0
-offset_right = -5.0
-offset_bottom = 69.0
-theme_override_constants/icon_max_width = 110
-theme_override_styles/normal = SubResource("StyleBoxEmpty_1r586")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_nbago")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_pjfgn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_s3ao0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3ti7s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s4ysb")
 toggle_mode = true
-icon = ExtResource("8_kc1db")
-icon_alignment = 1
+icon = SubResource("AtlasTexture_culmb")
 expand_icon = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/NinePatchRect"]
-custom_minimum_size = Vector2(425, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = -16.0
-offset_bottom = -10.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Shop UI" parent="CanvasLayer" instance=ExtResource("3_t260m")]
 
-[node name="Label" type="Label" parent="CanvasLayer/NinePatchRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 60
-text = "Store"
-horizontal_alignment = 1
-
-[node name="GridContainer2" type="GridContainer" parent="CanvasLayer/NinePatchRect/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-columns = 2
-
-[node name="BuyFish" parent="CanvasLayer/NinePatchRect/VBoxContainer/GridContainer2" instance=ExtResource("9_dxqtl")]
-layout_mode = 2
-
-[node name="BuyFish3" parent="CanvasLayer/NinePatchRect/VBoxContainer/GridContainer2" instance=ExtResource("9_dxqtl")]
-layout_mode = 2
-FishToBuy = ExtResource("10_ee5q4")
-
-[node name="BuyFish4" parent="CanvasLayer/NinePatchRect/VBoxContainer/GridContainer2" instance=ExtResource("9_dxqtl")]
-layout_mode = 2
-FishToBuy = ExtResource("10_vbhsi")
-
-[node name="BuyFish2" parent="CanvasLayer/NinePatchRect/VBoxContainer/GridContainer2" instance=ExtResource("9_dxqtl")]
-layout_mode = 2
-FishToBuy = ExtResource("11_4rvvk")
-buy_value = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/NinePatchRect"]
-root_node = NodePath("../../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 libraries = {
-"": SubResource("AnimationLibrary_mjwr2")
+"": SubResource("AnimationLibrary_i2b4w")
 }
 
 [node name="CollisionShape2D" type="StaticBody2D" parent="."]
@@ -227,14 +105,14 @@ collision_layer = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D"]
 shape = SubResource("SegmentShape2D_sjm76")
 
-[node name="Fish" parent="." instance=ExtResource("1_1oclr")]
-position = Vector2(794, 316)
+[node name="Paper" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.184314)
+z_index = 10
+offset_left = 1.0
+offset_right = 1921.0
+offset_bottom = 1080.0
+scale = Vector2(0.6, 0.6)
+mouse_filter = 2
+texture = ExtResource("2_nqlb4")
 
-[node name="Food" parent="." instance=ExtResource("3_n0nhd")]
-position = Vector2(539, 103)
-
-[node name="Plant" parent="." instance=ExtResource("11_4rvvk")]
-position = Vector2(470, 336)
-
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
-[connection signal="toggled" from="CanvasLayer/NinePatchRect/ShopToggle" to="CanvasLayer/NinePatchRect" method="_on_shop_toggle_toggled"]
+[connection signal="toggled" from="CanvasLayer/Button" to="." method="_on_button_toggled"]

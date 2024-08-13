@@ -17,13 +17,17 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Money="*res://Scripts/Money.gd"
-SaveGame="*res://Scripts/SaveGame.gd"
-TimeController="*res://Scripts/TimeController.gd"
+Money="*res://Scenes/Scripts/Money.gd"
+SaveGame="*res://Scenes/Scripts/SaveGame.gd"
+TimeController="*res://Scenes/Scripts/TimeController.gd"
 
 [display]
 
 window/stretch/mode="canvas_items"
+
+[gui]
+
+theme/custom_font="res://Resources/Roboto-Regular.ttf"
 
 [input]
 
@@ -38,3 +42,4 @@ lmb={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(1, 1, 1, 1)

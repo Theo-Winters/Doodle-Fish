@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0u86u1ng77t6"]
-
-[ext_resource type="Script" path="res://Scenes/ValueController.gd" id="1_amtm0"]
-
-[node name="ValueComponent" type="Node2D"]
-script = ExtResource("1_amtm0")
-BaseValue = 1
-MaxValue = 5

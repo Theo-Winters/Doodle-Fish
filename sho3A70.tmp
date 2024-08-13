@@ -1,0 +1,164 @@
+[gd_scene load_steps=20 format=3 uid="uid://dygjaamr1ytt4"]
+
+[ext_resource type="Texture2D" uid="uid://2uln75nfi7i" path="res://Textures/Panel.svg" id="1_jsvy1"]
+[ext_resource type="Script" path="res://Scenes/Scripts/ShopUI.gd" id="2_5i8dt"]
+[ext_resource type="Texture2D" uid="uid://dd1r4dxpp10es" path="res://Textures/UiIconsPack_Transparent_Icons.png" id="3_5uy26"]
+[ext_resource type="PackedScene" uid="uid://c5j0kr0nac2j8" path="res://Scenes/buy_fish_button.tscn" id="4_h1wco"]
+[ext_resource type="PackedScene" uid="uid://bkwem1gygclvi" path="res://Scenes/Fish/fish2.tscn" id="5_ktbqd"]
+[ext_resource type="PackedScene" uid="uid://dbtg6r0lxkhif" path="res://Scenes/Fish/fish.tscn" id="5_r2flj"]
+[ext_resource type="PackedScene" uid="uid://1xuls7q7pmkv" path="res://Scenes/Fish/fish3.tscn" id="6_idsoq"]
+[ext_resource type="PackedScene" uid="uid://dnfo71pbkxjva" path="res://Scenes/Plants/plant.tscn" id="7_bcn8u"]
+[ext_resource type="Texture2D" uid="uid://c1vcui0aj8ymx" path="res://Textures/Panel.png" id="8_ncqyg"]
+[ext_resource type="PackedScene" uid="uid://nsiaiys8dgln" path="res://Scenes/Plants/plant2.tscn" id="9_lgbgl"]
+[ext_resource type="PackedScene" uid="uid://jhg40beajmrq" path="res://Scenes/Plants/plant3.tscn" id="10_d6bw0"]
+[ext_resource type="PackedScene" uid="uid://b6mc88y5dipb" path="res://Scenes/Plants/plant4.tscn" id="11_sxyau"]
+[ext_resource type="PackedScene" uid="uid://bacr0geuancgd" path="res://Scenes/Plants/Decor.tscn" id="12_bpj1w"]
+[ext_resource type="PackedScene" uid="uid://c5cjy4twktb85" path="res://Scenes/Plants/Decor2.tscn" id="13_5bfhu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1r586"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nbago"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pjfgn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_420p2"]
+atlas = ExtResource("3_5uy26")
+region = Rect2(1207, 2137, 245, 190)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qs6qh"]
+texture = ExtResource("8_ncqyg")
+texture_margin_left = 24.4193
+texture_margin_top = 24.657
+texture_margin_right = 23.0639
+texture_margin_bottom = 27.388
+
+[node name="Shop UI" type="NinePatchRect"]
+custom_minimum_size = Vector2(500, 648)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 503.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_jsvy1")
+patch_margin_left = 26
+patch_margin_top = 24
+patch_margin_right = 23
+patch_margin_bottom = 22
+script = ExtResource("2_5i8dt")
+
+[node name="ShopToggle" type="Button" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = -69.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 69.0
+theme_override_constants/icon_max_width = 110
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1r586")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nbago")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pjfgn")
+toggle_mode = true
+icon = SubResource("AtlasTexture_420p2")
+icon_alignment = 1
+expand_icon = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(425, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -16.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.317647)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 60
+text = "Fish Store"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Money: "
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+
+[node name="GridContainer2" type="GridContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="BuyFish" parent="VBoxContainer/ScrollContainer/GridContainer2" instance=ExtResource("4_h1wco")]
+layout_mode = 2
+FishToBuy = ExtResource("5_r2flj")
+
+[node name="BuyFish2" parent="VBoxContainer/ScrollContainer/GridContainer2" instance=ExtResource("4_h1wco")]
+layout_mode = 2
+FishToBuy = ExtResource("5_ktbqd")
+
+[node name="BuyFish3" parent="VBoxContainer/ScrollContainer/GridContainer2" instance=ExtResource("4_h1wco")]
+layout_mode = 2
+FishToBuy = ExtResource("6_idsoq")
+
+[node name="BuyPlant" parent="VBoxContainer/ScrollContainer/GridContainer2" instance=ExtResource("4_h1wco")]
+layout_mode = 2
+FishToBuy = ExtResource("7_bcn8u")
+buy_value = 5
+
+[node name="BuyPlant2" parent="VBoxContainer/ScrollContainer/GridContainer2" instance=ExtResource("4_h1wco")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_qs6qh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qs6qh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qs6qh")
+theme_override_styles/focus = SubResource("StyleBoxTexture_qs6qh")
+FishToBuy = ExtResource("9_lgbgl")
+buy_value = 5
+
+[node name="BuyPlant3" parent="VBoxContainer/ScrollContainer/GridContainer2" instance=ExtResource("4_h1wco")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_qs6qh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qs6qh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qs6qh")
+theme_override_styles/focus = SubResource("StyleBoxTexture_qs6qh")
+FishToBuy = ExtResource("10_d6bw0")
+
+[node name="BuyPlant4" parent="VBoxContainer/ScrollContainer/GridContainer2" instance=ExtResource("4_h1wco")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_qs6qh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qs6qh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qs6qh")
+theme_override_styles/focus = SubResource("StyleBoxTexture_qs6qh")
+FishToBuy = ExtResource("11_sxyau")
+
+[node name="BuyRockCave" parent="VBoxContainer/ScrollContainer/GridContainer2" instance=ExtResource("4_h1wco")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_qs6qh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qs6qh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qs6qh")
+theme_override_styles/focus = SubResource("StyleBoxTexture_qs6qh")
+FishToBuy = ExtResource("12_bpj1w")
+
+[node name="BuyDriftWood" parent="VBoxContainer/ScrollContainer/GridContainer2" instance=ExtResource("4_h1wco")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_qs6qh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qs6qh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qs6qh")
+theme_override_styles/focus = SubResource("StyleBoxTexture_qs6qh")
+FishToBuy = ExtResource("13_5bfhu")
+
+[connection signal="toggled" from="ShopToggle" to="." method="_on_shop_toggle_toggled"]
